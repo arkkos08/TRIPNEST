@@ -1,4 +1,4 @@
-Tripnest is a full-stack travel social platform for showing your trips by sharing pictures, planning tips and connecting with other people.
+🌍 Tripnest is a full-stack travel social platform for showing your trips by sharing pictures, planning tips and connecting with other people.
 
 ✨ Features
 
