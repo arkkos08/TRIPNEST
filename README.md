@@ -34,6 +34,7 @@
 3)Web browser
 
 -STEPS 
+
 1)Make sure Node.js is installed.
 
 2)You can check with: node -v and npm -v (If both commands return a version number, continue.)
