@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TripNest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <section class="auth-screen" id="authScreen">
+        <div class="auth-hero">
+          <div class="brand">TripNest</div>
+          <h1>
+            Travel map,
+            <span>memories</span>
+            and community.
+          </h1>
+          <p>
+            Mark the countries you have visited, upload photos, and share your
+            experiences with other travelers.
+          </p>
+
+        </div>
+
+        <div class="auth-panel">
+          <div class="auth-panel-inner">
+            <div class="auth-tabs">
+              <button class="tab-btn active" data-mode="login">Login</button>
+              <button class="tab-btn" data-mode="register">Register</button>
+            </div>
+
+            <form class="auth-form active" id="loginForm">
+              <h2>Login to TripNest</h2>
+              <label>
+                <span>Email or Username</span>
+                <input type="text" placeholder="name@example.com" />
+              </label>
+              <label>
+                <span>Password</span>
+                <input type="password" placeholder="••••••••" />
+              </label>
+              <button type="submit" class="primary-btn" id="loginBtn">
+                Login
+              </button>
+              <button
+                type="button"
+                class="secondary-btn switch-mode"
+                data-mode="register"
+              >
+                Create account
+              </button>
+            </form>
+
+            <form class="auth-form" id="registerForm">
+              <h2>New account</h2>
+              <div class="grid">
+                <label>
+                  <span>Username</span>
+                  <input id="registerUsername" type="text" placeholder="tripnest_user" />
+                </label>
+                <label>
+                  <span>Nickname</span>
+                  <input id="registerNickname" type="text" placeholder="TravelSoul" />
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input id="registerEmail" type="email" placeholder="name@example.com" />
+                </label>
+                <label>
+                  <span>Password</span>
+                  <input type="password" placeholder="••••••••" />
+                </label>
+                <label>
+                  <span>Birth date</span>
+                  <input type="date" id="birthDate" />
+                </label>
+                <label>
+                  <span>Gender</span>
+                  <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Country of residence</span>
+                  <input id="registerResidenceCountry" type="text" placeholder="Type at least 2 characters" autocomplete="off" />
+                </label>
+                <label>
+                  <span>City of residence</span>
+                  <input id="registerResidenceCity" type="text" placeholder="Choose a country first" autocomplete="off" />
+                </label>
+                <label>
+                  <span>Mobile code</span>
+                  <div class="tripnest-phone-code-field">
+                    <span id="registerPhoneFlag" class="tripnest-phone-flag" aria-hidden="true">🌍</span>
+                    <input id="registerPhoneCodeDisplay" type="text" placeholder="Choose dialing country" autocomplete="off" />
+                  </div>
+                  <input id="registerPhoneCode" type="hidden" />
+                </label>
+                <label>
+                  <span>Mobile phone</span>
+                  <input id="registerPhoneNumber" type="tel" placeholder="6912345678" inputmode="numeric" />
+                </label>
+              </div>
+              <p class="helper-text" id="ageMessage">
+                Registration is allowed only for users over 18 years old.
+              </p>
+              <button type="submit" class="primary-btn" id="registerBtn">
+                Register
+              </button>
+              <button
+                type="button"
+                class="secondary-btn switch-mode"
+                data-mode="login"
+              >
+                I already have an account
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <main class="app-screen hidden" id="appScreen">
+        <header class="topbar">
+          <div class="topbar-brand">
+            <div class="logo">T</div>
+            <div>
+              <strong>TripNest</strong>
+              <span>travel social map</span>
+            </div>
+          </div>
+
+          <div class="topbar-search">
+            <input type="search" placeholder="Search users, cities or countries" />
+          </div>
+
+          <div class="topbar-actions">
+            <button class="icon-btn active">⌂</button>
+            <button class="icon-btn">◎</button>
+            <button class="icon-btn">✉</button>
+            <button class="icon-btn">⚙</button>
+            <button class="secondary-btn small" id="logoutBtn">Logout</button>
+          </div>
+        </header>
+
+        <div class="status-bar" id="statusBar">
+          You are in the demo environment of TripNest.
+        </div>
+
+        <section class="layout">
+          <aside class="sidebar">
+            <div class="card profile-card">
+              <div class="profile-head">
+                <div class="avatar">AN</div>
+                <div>
+                  <h3>@aris_nest</h3>
+                  <p>Travel storyteller</p>
+                </div>
+              </div>
+
+              <div class="stats">
+                <div><strong>18.4K</strong><span>Followers</span></div>
+                <div><strong>721</strong><span>Following</span></div>
+                <div><strong>68</strong><span>Posts</span></div>
+              </div>
+
+              <div class="mini-journey">
+                <div>
+                  <span>Next goal</span>
+                  <strong>New Zealand</strong>
+                </div>
+                <button class="secondary-btn small">Planner</button>
+              </div>
+            </div>
+
+            <div class="card itinerary-card">
+              <div class="section-head compact-head">
+                <div>
+                  <h3>Upcoming trips</h3>
+                  <p>Organize your next plans.</p>
+                </div>
+              </div>
+              <div class="trip-pill">
+                <span>Sep 12</span>
+                <strong>Barcelona city break</strong>
+              </div>
+              <div class="trip-pill">
+                <span>Oct 03</span>
+                <strong>Amsterdam canals</strong>
+              </div>
+              <div class="trip-pill">
+                <span>Nov 20</span>
+                <strong>Vienna winter market</strong>
+              </div>
+            </div>
+          </aside>
+
+          <section class="feed">
+            <div class="card hero-feed-card">
+              <div class="hero-feed-copy">
+                <div class="eyebrow">Daily snapshot</div>
+                <h2>
+                  Keep your memories alive and show on the map where you have
+                  been.
+                </h2>
+                <p>
+                  TripNest combines a social feed, travel journal, and personal
+                  map progress in one central home page.
+                </p>
+                <div class="hero-feed-actions">
+                  <button class="primary-btn">+ New memory</button>
+                  <button class="secondary-btn">Open map</button>
+                </div>
+              </div>
+              <div class="hero-visual">
+                <div class="memory-badge">24 νέες memories</div>
+                <div class="visual-card large"></div>
+                <div class="visual-card small top"></div>
+                <div class="visual-card small bottom"></div>
+              </div>
+            </div>
+
+            <div class="card map-overview-card">
+              <div class="section-head">
+                <div>
+                  <h2>My world map</h2>
+                  <p>
+                    Green for countries you've visited, gray for the rest.
+                  </p>
+                </div>
+                <div class="overview-badge">+3 countries this year</div>
+              </div>
+
+              <div class="world-map">
+                <div class="continent north-america active"></div>
+                <div class="continent south-america"></div>
+                <div class="continent europe active"></div>
+                <div class="continent africa"></div>
+                <div class="continent asia active"></div>
+                <div class="continent oceania"></div>
+              </div>
+
+              <div class="progress-row">
+                <strong id="visitedCount">35 / 195 χώρες</strong>
+                <span id="visitedPercent">17.9%</span>
+              </div>
+
+              <div class="country-list">
+                <button class="country-btn active">Greece</button>
+                <button class="country-btn">Italy</button>
+                <button class="country-btn active">Japan</button>
+                <button class="country-btn">Brazil</button>
+                <button class="country-btn active">France</button>
+                <button class="country-btn">Australia</button>
+              </div>
+            </div>
+
+            <div class="card composer-card">
+              <div class="composer-avatar">AN</div>
+              <div class="composer-body">
+                <strong>Share your next travel moment.</strong>
+                <p>
+                  Add a photo, country, short text, and save it to your journal.
+                </p>
+                <div class="composer-actions">
+                  <button class="secondary-btn small">📷 Photo</button>
+                  <button class="secondary-btn small">📍 Location</button>
+                  <button class="secondary-btn small">🗺 Country tag</button>
+                </div>
+              </div>
+              <button class="primary-btn small composer-post-btn">Post</button>
+            </div>
+
+            <div class="post-grid">
+              <article class="card post-card featured-post">
+                <div class="post-header">
+                  <div class="profile-head small-head">
+                    <div class="avatar small-avatar">AN</div>
+                    <div>
+                      <h3>@aris_nest</h3>
+                      <p>Japan • Tokyo</p>
+                    </div>
+                  </div>
+                  <button class="secondary-btn small" id="followBtn">
+                    Following
+                  </button>
+                </div>
+
+                <div class="post-image"></div>
+
+                <p class="post-copy">
+                  Neon βράδια στο Shibuya, ramen μετά τα μεσάνυχτα και μια πόλη που
+                  δεν σε αφήνει να βαρεθείς ούτε λεπτό.
+                </p>
+
+                <div class="post-actions">
+                  <button class="like-btn" id="likeBtn">♡ 1284</button>
+                  <button class="secondary-btn small" id="memoryBtn">
+                    Open Country Journal
+                  </button>
+                </div>
+              </article>
+
+              <article class="card memory-card">
+                <div class="memory-preview"></div>
+                <div class="memory-card-body">
+                  <span class="memory-tag">Best memory</span>
+                  <h3>Tokyo Night Memory</h3>
+                  <p>Japan • Shibuya</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="rightbar">
+            <div class="card insights-card">
+              <h3>Travel insights</h3>
+              <div class="insight-row">
+                <span>Visited this year</span>
+                <strong>12 countries</strong>
+              </div>
+              <div class="insight-row">
+                <span>Top continent</span>
+                <strong>Europe</strong>
+              </div>
+              <div class="insight-row">
+                <span>Longest stay</span>
+                <strong>Tokyo · 14 days</strong>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Notifications</h3>
+              <ul class="simple-list">
+                <li>@maria.wanders σε ακολούθησε.</li>
+                <li>@niko.explorer έκανε like στο post σου.</li>
+                <li>Νέο memory reminder για Ιταλία.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Suggested travelers</h3>
+              <div class="suggestion-item">
+                <div class="suggestion-avatar">MW</div>
+                <div>
+                  <strong>@maria.wanders</strong>
+                  <span>42 countries</span>
+                </div>
+              </div>
+              <div class="suggestion-item">
+                <div class="suggestion-avatar">NE</div>
+                <div>
+                  <strong>@niko.explorer</strong>
+                  <span>Road trips</span>
+                </div>
+              </div>
+              <div class="suggestion-item">
+                <div class="suggestion-avatar">EL</div>
+                <div>
+                  <strong>@eleni.nomad</strong>
+                  <span>Asia diaries</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

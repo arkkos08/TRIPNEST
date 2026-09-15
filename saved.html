@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest Saved Posts</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dashboard-body">
+  <div class="tripnest-home-shell">
+    <aside class="tripnest-sidebar">
+      <a id="savedProfileNavLink" class="tripnest-sidebar-item" href="./profile.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span id="savedProfileNavTitle" class="tripnest-sidebar-title">Profile</span>
+          <span class="tripnest-sidebar-subtitle">My profile</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./conversations.html">
+        <span class="tripnest-sidebar-icon">C</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Conversations</span>
+          <span class="tripnest-sidebar-subtitle">Inbox and messages</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item active" href="./saved.html">
+        <span class="tripnest-sidebar-icon">S</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Saved</span>
+          <span class="tripnest-sidebar-subtitle">My saved posts</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./trip-plans.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Trip planning</span>
+          <span class="tripnest-sidebar-subtitle">Plan and find a crew</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./offers.html">
+        <span class="tripnest-sidebar-icon">O</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Offers</span>
+          <span class="tripnest-sidebar-subtitle">Cheap flights and stays</span>
+        </span>
+      </a>
+    </aside>
+
+    <nav class="tripnest-topbar">
+      <div class="tripnest-topbar-left">
+        <a class="tripnest-topbar-logo tripnest-topbar-logo-link" href="./home.html">T</a>
+        <input class="tripnest-topbar-search" type="text" placeholder="Search" />
+      </div>
+
+      <a class="tripnest-back-link" href="./home.html">Back to map</a>
+      <button id="savedLogoutBtn" class="tripnest-logout-btn">Logout</button>
+    </nav>
+
+    <main class="tripnest-home-content">
+      <section class="card tripnest-saved-page-card">
+        <div class="tripnest-saved-head">
+          <div>
+            <h1>Saved</h1>
+            <p>All posts you saved to revisit later.</p>
+          </div>
+          <span id="savedPostsCountBadge" class="tripnest-saved-count-badge">0 posts</span>
+        </div>
+
+        <div class="tripnest-saved-filters">
+          <input
+            id="savedSearchInput"
+            class="tripnest-saved-filter-input"
+            type="text"
+            placeholder="Search by country, city or user"
+            autocomplete="off"
+          />
+          <div>
+            <input
+              id="savedCountryFilter"
+              class="tripnest-saved-filter-input"
+              type="text"
+              list="savedCountryFilterOptions"
+              placeholder="All countries"
+              autocomplete="off"
+            />
+            <datalist id="savedCountryFilterOptions"></datalist>
+          </div>
+          <select id="savedSortSelect" class="tripnest-saved-filter-select">
+            <option value="newest">Newest saved</option>
+            <option value="oldest">Oldest saved</option>
+            <option value="rating_desc">Highest rating</option>
+            <option value="rating_asc">Lowest rating</option>
+            <option value="country_asc">Country A-Z</option>
+            <option value="country_desc">Country Z-A</option>
+          </select>
+        </div>
+
+        <div id="savedPostsGrid" class="tripnest-profile-posts-grid">
+          <p class="tripnest-empty-posts">No saved posts yet.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./nav-search.js"></script>
+  <script src="./saved.js"></script>
+</body>
+</html>

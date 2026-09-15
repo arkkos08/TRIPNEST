@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest Trip Plans</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dashboard-body">
+  <div class="tripnest-home-shell">
+    <aside class="tripnest-sidebar">
+      <a id="tripPlansProfileNavLink" class="tripnest-sidebar-item" href="./profile.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span id="tripPlansProfileNavTitle" class="tripnest-sidebar-title">Profile</span>
+          <span class="tripnest-sidebar-subtitle">My profile</span>
+        </span>
+      </a>
+
+      <a class="tripnest-sidebar-item" href="./conversations.html">
+        <span class="tripnest-sidebar-icon">C</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Conversations</span>
+          <span class="tripnest-sidebar-subtitle">Inbox and messages</span>
+        </span>
+      </a>
+
+      <a class="tripnest-sidebar-item" href="./saved.html">
+        <span class="tripnest-sidebar-icon">S</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Saved</span>
+          <span class="tripnest-sidebar-subtitle">My saved posts</span>
+        </span>
+      </a>
+
+      <a class="tripnest-sidebar-item active" href="./trip-plans.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Trip planning</span>
+          <span class="tripnest-sidebar-subtitle">Plan and find a crew</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./offers.html">
+        <span class="tripnest-sidebar-icon">O</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Offers</span>
+          <span class="tripnest-sidebar-subtitle">Cheap flights and stays</span>
+        </span>
+      </a>
+    </aside>
+
+    <nav class="tripnest-topbar">
+      <div class="tripnest-topbar-left">
+        <a class="tripnest-topbar-logo tripnest-topbar-logo-link" href="./home.html">T</a>
+        <input class="tripnest-topbar-search" type="text" placeholder="Search" />
+      </div>
+      <a class="tripnest-back-link" href="./home.html">Back to map</a>
+      <button id="tripPlansLogoutBtn" class="tripnest-logout-btn">Logout</button>
+    </nav>
+
+    <main class="tripnest-home-content">
+      <section class="card tripnest-trip-plans-page-card">
+        <div class="tripnest-trip-plans-head">
+          <div>
+            <h1>Trip planning</h1>
+            <p>Plan your next trip and see who wants to join.</p>
+          </div>
+          <button id="openTripPlanModalBtn" class="primary-btn tripnest-trip-plans-create-btn">Create your trip</button>
+        </div>
+
+        <p id="tripPlansMessage" class="tripnest-edit-message"></p>
+
+        <section class="tripnest-trip-plans-section">
+          <div class="tripnest-trip-plans-section-head">
+            <h2>My trips</h2>
+            <p>Trips you've scheduled.</p>
+          </div>
+
+          <div id="myTripPlansGrid" class="tripnest-trip-plans-grid">
+            <p class="tripnest-empty-posts">You have not created a trip yet.</p>
+          </div>
+        </section>
+
+        <section class="tripnest-trip-plans-section">
+          <div class="tripnest-trip-plans-section-head">
+            <h2>Other users' trips</h2>
+            <p>Trips your friends can view and share with you.</p>
+          </div>
+
+          <div class="tripnest-trip-plans-filters">
+            <input
+              id="tripPlansSearchInput"
+              class="tripnest-trip-plan-filter-input"
+              type="text"
+              placeholder="Search by country, city or user"
+              autocomplete="off"
+            />
+
+            <select id="tripPlansRelationFilter" class="tripnest-trip-plan-filter-select">
+              <option value="all">All trips</option>
+              <option value="friends">Friends only</option>
+            </select>
+
+            <div>
+              <input
+                id="tripPlansCountryFilter"
+                class="tripnest-trip-plan-filter-input"
+                type="text"
+                list="tripPlansCountryFilterOptions"
+                placeholder="All countries"
+                autocomplete="off"
+              />
+              <datalist id="tripPlansCountryFilterOptions"></datalist>
+            </div>
+          </div>
+
+          <div id="discoverTripPlansGrid" class="tripnest-trip-plans-grid">
+            <p class="tripnest-empty-posts">There are no active trips to view yet.</p>
+          </div>
+        </section>
+
+      </section>
+    </main>
+  </div>
+
+  <div id="tripPlanModal" class="tripnest-profile-modal-overlay" hidden>
+    <div
+      class="tripnest-profile-popover tripnest-trip-plan-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tripPlanModalTitle"
+    >
+      <div class="tripnest-profile-popover-head">
+        <h3 id="tripPlanModalTitle">Create your trip</h3>
+        <button
+          type="button"
+          class="tripnest-profile-popover-close"
+          id="closeTripPlanModalBtn"
+          aria-label="Close"
+        >x</button>
+      </div>
+
+      <form id="tripPlanForm" class="tripnest-trip-plan-form">
+        <label>
+          <span>Country</span>
+          <div class="tripnest-trip-plan-autocomplete">
+            <input
+              id="tripPlanCountrySelect"
+              type="text"
+              placeholder="Type at least 2 characters"
+              autocomplete="off"
+              required
+            />
+          </div>
+        </label>
+
+        <div class="tripnest-trip-plan-city-builder">
+          <label class="tripnest-trip-plan-city-label">
+            <span>Cities (required)</span>
+            <div class="tripnest-trip-plan-autocomplete">
+              <input
+                id="tripPlanCitySelect"
+                type="text"
+                placeholder="Choose a country first"
+                autocomplete="off"
+              />
+            </div>
+          </label>
+          <button id="addTripPlanCityBtn" type="button" class="secondary-btn">Add city</button>
+        </div>
+
+        <div id="tripPlanCitiesList" class="tripnest-trip-plan-cities-list"></div>
+
+        <div class="tripnest-edit-grid">
+          <label>
+            <span>Start date</span>
+            <input id="tripPlanStartDate" type="date" required />
+          </label>
+          <label>
+            <span>Return date</span>
+            <input id="tripPlanReturnDate" type="date" required />
+          </label>
+        </div>
+
+        <div class="tripnest-edit-grid">
+          <label>
+            <span>How many people do you need?</span>
+            <input id="tripPlanRequestedPeople" type="number" min="1" max="50" required />
+          </label>
+          <label>
+            <span>Gender preference</span>
+            <select id="tripPlanGenderPreference" required>
+              <option value="both">Men and women</option>
+              <option value="men">Men only</option>
+              <option value="women">Women only</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="tripnest-edit-grid">
+          <label>
+            <span>Age from</span>
+            <input id="tripPlanAgeMin" type="number" min="18" max="100" required />
+          </label>
+          <label>
+            <span>Age to</span>
+            <input id="tripPlanAgeMax" type="number" min="18" max="100" required />
+          </label>
+        </div>
+
+        <div class="tripnest-edit-grid">
+          <label>
+            <span>Budget per person</span>
+            <select id="tripPlanBudget" required>
+              <option value="low">Low budget</option>
+              <option value="medium">Medium budget</option>
+              <option value="high">High budget</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Who will be watching it</span>
+            <select id="tripPlanVisibility" required>
+              <option value="friends">Just friends</option>
+              <option value="all">All</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          <span>A few words about the trip</span>
+          <textarea id="tripPlanDescription" rows="4" placeholder="Tell us about your trip!"></textarea>
+        </label>
+
+        <div class="tripnest-edit-actions">
+          <button type="submit" class="primary-btn">Trip publication</button>
+          <button type="button" id="deleteTripPlanBtn" class="secondary-btn tripnest-danger-btn" hidden>Delete trip</button>
+          <button type="button" id="cancelTripPlanModalBtn" class="secondary-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="tripPlanExecuteModal" class="tripnest-profile-modal-overlay" hidden>
+    <div
+      class="tripnest-profile-popover tripnest-trip-plan-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tripPlanExecuteModalTitle"
+    >
+      <div class="tripnest-profile-popover-head">
+        <h3 id="tripPlanExecuteModalTitle">Take your trip</h3>
+        <button
+          type="button"
+          class="tripnest-profile-popover-close"
+          id="closeTripPlanExecuteModalBtn"
+          aria-label="Close"
+        >x</button>
+      </div>
+
+      <div class="tripnest-trip-plan-execute-shell">
+        <div id="tripPlanExecuteSummary" class="tripnest-trip-plan-execute-summary"></div>
+
+        <label class="tripnest-trip-plan-execute-block">
+          <span>Bring the people with you</span>
+          <div id="tripPlanExecuteInterestedList" class="tripnest-trip-plan-execute-users"></div>
+        </label>
+
+        <div class="tripnest-trip-plan-provider-grid">
+          <label class="tripnest-trip-plan-execute-block">
+            <span>Accommodation provider</span>
+            <select id="stayProviderSelect" class="tripnest-trip-plan-provider-select">
+              <option value="booking">Booking</option>
+              <option value="skyscanner">Skyscanner</option>
+              <option value="esky">eSky</option>
+            </select>
+          </label>
+
+          <label class="tripnest-trip-plan-execute-block">
+            <span>Flight provider</span>
+            <select id="flightProviderSelect" class="tripnest-trip-plan-provider-select">
+              <option value="booking">Booking</option>
+              <option value="skyscanner">Skyscanner</option>
+              <option value="esky">eSky</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="flightProviderChooser" class="tripnest-flight-provider-chooser" hidden>
+          <button type="button" class="secondary-btn" data-flight-provider="booking">Booking</button>
+          <button type="button" class="secondary-btn" data-flight-provider="skyscanner">Skyscanner</button>
+          <button type="button" class="secondary-btn" data-flight-provider="esky">eSky</button>
+        </div>
+
+        <p id="tripPlanExecuteAirportInfo" class="tripnest-edit-message"></p>
+
+        <div class="tripnest-trip-plan-booking-actions">
+          <button type="button" id="bookHotelBtn" class="primary-btn">Hotel reservation</button>
+          <button type="button" id="bookFlightsBtn" class="secondary-btn">Flight reservation</button>
+          <button type="button" id="cancelTripPlanExecuteModalBtn" class="secondary-btn tripnest-danger-btn tripnest-cancel-execute-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="flightProviderModal" class="tripnest-profile-modal-overlay" hidden>
+    <div
+      class="tripnest-profile-popover tripnest-flight-provider-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="flightProviderModalTitle"
+    >
+      <div class="tripnest-profile-popover-head">
+        <h3 id="flightProviderModalTitle">Select a flight provider</h3>
+        <button
+          type="button"
+          class="tripnest-profile-popover-close"
+          id="closeFlightProviderModalBtn"
+          aria-label="Close"
+        >x</button>
+      </div>
+
+      <div class="tripnest-trip-plan-execute-shell">
+        <p class="tripnest-edit-message">Select the provider you want to open the pre-filled flight search.</p>
+
+        <div class="tripnest-flight-provider-chooser tripnest-flight-provider-chooser-modal">
+          <button type="button" class="secondary-btn" data-flight-provider="booking">Booking</button>
+          <button type="button" class="secondary-btn" data-flight-provider="skyscanner">Skyscanner</button>
+          <button type="button" class="secondary-btn" data-flight-provider="esky">eSky</button>
+        </div>
+
+        <button type="button" id="cancelFlightProviderModalBtn" class="secondary-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="hotelProviderModal" class="tripnest-profile-modal-overlay" hidden>
+    <div
+      class="tripnest-profile-popover tripnest-flight-provider-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="hotelProviderModalTitle"
+    >
+      <div class="tripnest-profile-popover-head">
+        <h3 id="hotelProviderModalTitle">Select an accommodation provider</h3>
+        <button
+          type="button"
+          class="tripnest-profile-popover-close"
+          id="closeHotelProviderModalBtn"
+          aria-label="Close"
+        >x</button>
+      </div>
+
+      <div class="tripnest-trip-plan-execute-shell">
+        <p class="tripnest-edit-message">We will pass the city and dates where the provider supports it.</p>
+
+        <div class="tripnest-flight-provider-chooser tripnest-flight-provider-chooser-modal tripnest-hotel-provider-chooser-modal">
+          <button type="button" class="secondary-btn" data-hotel-provider="booking">Booking</button>
+          <button type="button" class="secondary-btn" data-hotel-provider="esky">eSky</button>
+          <button type="button" class="secondary-btn" data-hotel-provider="skyscanner">Skyscanner</button>
+          <button type="button" class="secondary-btn" data-hotel-provider="airbnb">Airbnb</button>
+        </div>
+
+        <div id="eskyHotelLiveResults" class="tripnest-live-hotel-results" hidden></div>
+
+        <button type="button" id="cancelHotelProviderModalBtn" class="secondary-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./nav-search.js"></script>
+  <script src="./trip-plans.js?v=20260411-20"></script>
+</body>
+</html>
+

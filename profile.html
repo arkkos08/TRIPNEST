@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest Profile</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dashboard-body">
+  <div class="tripnest-home-shell">
+    <aside class="tripnest-sidebar">
+      <a id="profileSidebarLink" class="tripnest-sidebar-item active" href="./profile.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span id="profileSidebarTitle" class="tripnest-sidebar-title">Profile</span>
+          <span class="tripnest-sidebar-subtitle">My profile</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./conversations.html">
+        <span class="tripnest-sidebar-icon">C</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Conversations</span>
+          <span class="tripnest-sidebar-subtitle">Inbox and messages</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./saved.html">
+        <span class="tripnest-sidebar-icon">S</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Saved</span>
+          <span class="tripnest-sidebar-subtitle">My saved posts</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./trip-plans.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Trip planning</span>
+          <span class="tripnest-sidebar-subtitle">Plan and find a crew</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./offers.html">
+        <span class="tripnest-sidebar-icon">O</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Offers</span>
+          <span class="tripnest-sidebar-subtitle">Cheap flights and stays</span>
+        </span>
+      </a>
+    </aside>
+
+    <nav class="tripnest-topbar">
+      <div class="tripnest-topbar-left">
+        <a class="tripnest-topbar-logo tripnest-topbar-logo-link" href="./home.html">T</a>
+        <input
+          class="tripnest-topbar-search"
+          type="text"
+          placeholder="Search"
+        />
+      </div>
+
+      <a class="tripnest-back-link" href="./home.html">Back to map</a>
+      <button id="logoutBtn" class="tripnest-logout-btn">Logout</button>
+    </nav>
+
+    <main class="tripnest-home-content">
+      <section class="card tripnest-profile-page-card">
+        <div class="tripnest-profile-hero">
+          <div class="tripnest-profile-avatar" id="profileAvatar">T</div>
+
+          <div class="tripnest-profile-copy">
+            <div class="tripnest-profile-identity">
+              <h1 id="profileNickname">Profile</h1>
+              <p id="profileHandle">@username</p>
+            </div>
+
+            <p class="tripnest-profile-bio" id="profileBio">Travel lover, memories collector and explorer of new places.</p>
+
+            <div class="tripnest-profile-stats">
+              <div class="tripnest-profile-stat">
+                <strong id="profilePostsCount">0</strong>
+                <span>posts</span>
+              </div>
+              <button type="button" class="tripnest-profile-stat tripnest-profile-stat-btn" id="profileFollowersStat">
+                <strong id="profileFollowersCount">0</strong>
+                <span>followers</span>
+              </button>
+              <button type="button" class="tripnest-profile-stat tripnest-profile-stat-btn" id="profileFollowingStat">
+                <strong id="profileFollowingCount">0</strong>
+                <span>following</span>
+              </button>
+              <button type="button" class="tripnest-profile-stat tripnest-profile-stat-btn" id="profileFriendsStat">
+                <strong id="profileFriendsCount">0</strong>
+                <span>friends</span>
+              </button>
+              <button type="button" class="tripnest-profile-stat tripnest-profile-stat-btn" id="profileCountriesStat">
+                <strong id="profileVisitedCount">0</strong>
+                <span>countries</span>
+              </button>
+            </div>
+
+            <div class="tripnest-profile-actions">
+              <button id="editProfileBtn" class="secondary-btn tripnest-profile-action-btn">Edit profile</button>
+              <button id="addPostBtn" class="primary-btn tripnest-profile-action-btn">Add post</button>
+              <button id="followProfileBtn" class="primary-btn tripnest-profile-action-btn" hidden>Follow</button>
+              <button id="messageProfileBtn" class="secondary-btn tripnest-profile-action-btn" hidden>Message</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tripnest-profile-summary">
+          <div class="tripnest-profile-summary-row">
+            <span>Username</span>
+            <strong id="profileUsername">-</strong>
+          </div>
+          <div class="tripnest-profile-summary-row">
+            <span>Email</span>
+            <strong id="profileEmail">-</strong>
+          </div>
+          <div class="tripnest-profile-summary-row">
+            <span>World percentage</span>
+            <strong id="profileVisitedPercent">0%</strong>
+          </div>
+        </div>
+
+        <section class="tripnest-profile-posts-section">
+          <div class="tripnest-profile-posts-head">
+            <h2>Posts</h2>
+          </div>
+          <div id="profilePostsGrid" class="tripnest-profile-posts-grid">
+            <p class="tripnest-empty-posts">No posts yet.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="profileStatsPopover" class="tripnest-profile-modal-overlay" hidden>
+    <div class="tripnest-profile-popover" role="dialog" aria-modal="true" aria-labelledby="profileStatsPopoverTitle">
+      <div class="tripnest-profile-popover-head">
+        <h3 id="profileStatsPopoverTitle">Details</h3>
+        <button type="button" class="tripnest-profile-popover-close" id="profileStatsPopoverClose" aria-label="Close">x</button>
+      </div>
+      <div class="tripnest-profile-popover-search">
+        <input
+          id="profileStatsSearch"
+          class="tripnest-profile-popover-search-input"
+          type="text"
+          placeholder="Αναζήτηση"
+          autocomplete="off"
+        />
+      </div>
+      <div id="profileStatsPopoverBody" class="tripnest-profile-popover-body"></div>
+    </div>
+  </div>
+
+  <script src="./nav-search.js"></script>
+  <script src="./profile.js"></script>
+</body>
+</html>

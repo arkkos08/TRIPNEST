@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest New Post</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dashboard-body">
+  <div class="tripnest-home-shell">
+    <nav class="tripnest-topbar">
+      <div class="tripnest-topbar-left">
+        <a class="tripnest-topbar-logo tripnest-topbar-logo-link" href="./home.html">T</a>
+        <input class="tripnest-topbar-search" type="text" placeholder="Search" />
+      </div>
+      <a class="tripnest-back-link" href="./profile.html">Back to profile</a>
+      <button id="logoutBtn" class="tripnest-logout-btn">Logout</button>
+    </nav>
+
+    <main class="tripnest-home-content">
+      <section class="card tripnest-create-post-card">
+        <div class="tripnest-create-post-head">
+          <h1 id="createPostTitle">New post</h1>
+          <p id="createPostIntro">Upload up to 10 photos and add trip details, notes, and ratings.</p>
+        </div>
+
+        <form id="createPostForm" class="tripnest-create-post-form">
+          <label>
+            <span>Photos</span>
+            <input id="postPhotosInput" type="file" accept="image/*" multiple />
+          </label>
+          <div id="postPhotosPreview" class="tripnest-post-photos-preview"></div>
+
+          <div class="tripnest-edit-grid">
+            <label>
+              <span>Country</span>
+              <input id="postCountry" type="text" list="postCountryOptions" placeholder="Choose country" autocomplete="off" required />
+              <datalist id="postCountryOptions"></datalist>
+            </label>
+            <label>
+              <span>Departure date</span>
+              <input id="postTravelDate" type="date" required />
+            </label>
+          </div>
+
+          <div class="tripnest-edit-grid">
+            <label>
+              <span>Return date</span>
+              <input id="postReturnDate" type="date" />
+            </label>
+            <div class="tripnest-duration-summary-wrap">
+              <span>Total duration</span>
+              <strong id="tripDurationSummary">-</strong>
+            </div>
+          </div>
+
+          <div class="tripnest-cities-block">
+            <div class="tripnest-cities-head">
+              <span>Cities</span>
+              <button id="addCityBtn" type="button" class="secondary-btn">Add city</button>
+            </div>
+            <datalist id="postCityOptions"></datalist>
+            <div id="citiesContainer" class="tripnest-cities-list"></div>
+          </div>
+
+          <label>
+            <span>Description</span>
+            <textarea id="postDescription" rows="4" placeholder="Write a few words about your trip..."></textarea>
+          </label>
+
+          <div class="tripnest-ratings-grid">
+            <label><span>Sights</span><input id="ratingSights" type="number" min="0" max="10" step="0.01" required /></label>
+            <label><span>Food</span><input id="ratingFood" type="number" min="0" max="10" step="0.01" required /></label>
+            <label><span>Activities</span><input id="ratingActivities" type="number" min="0" max="10" step="0.01" required /></label>
+            <label><span>Travel ease</span><input id="ratingEase" type="number" min="0" max="10" step="0.01" required /></label>
+            <label><span>Cost</span><input id="ratingCost" type="number" min="0" max="10" step="0.01" required /></label>
+          </div>
+
+          <div class="tripnest-average-box">
+            <span>Average</span>
+            <strong id="postAverageRating">0.00</strong>
+          </div>
+
+          <p id="createPostMessage" class="tripnest-edit-message"></p>
+
+          <div class="tripnest-edit-actions">
+            <button id="createPostSubmitBtn" type="submit" class="primary-btn">Publish</button>
+            <a href="./profile.html" class="secondary-btn tripnest-link-btn">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="./nav-search.js"></script>
+  <script src="./create-post.js"></script>
+</body>
+</html>

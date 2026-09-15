@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest Post</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dashboard-body">
+  <div class="tripnest-home-shell">
+    <nav class="tripnest-topbar">
+      <div class="tripnest-topbar-left">
+        <a class="tripnest-topbar-logo tripnest-topbar-logo-link" href="./home.html">T</a>
+        <input class="tripnest-topbar-search" type="text" placeholder="Αναζήτηση" />
+      </div>
+      <a class="tripnest-back-link" href="./profile.html">Back to profile</a>
+      <button id="logoutBtn" class="tripnest-logout-btn">Logout</button>
+    </nav>
+
+    <main class="tripnest-home-content">
+      <section class="tripnest-social-post-shell">
+        <p id="postViewMessage" class="tripnest-edit-message"></p>
+
+        <article id="postDetailCard" class="tripnest-social-post-card" hidden>
+          <header class="tripnest-social-post-header">
+            <div class="tripnest-social-post-author">
+              <div id="postAuthorAvatar" class="tripnest-social-post-avatar">T</div>
+              <div>
+                <strong id="postDetailAuthorName">-</strong>
+                <p id="postDetailMeta">-</p>
+              </div>
+            </div>
+            <a id="postBackToProfile" class="tripnest-social-post-close" href="./profile.html">Close</a>
+          </header>
+
+          <div class="tripnest-social-post-body">
+            <div class="tripnest-social-post-title-row">
+              <div>
+                <h1 id="postDetailTitle">-</h1>
+                <p id="postDetailDescription" class="tripnest-social-post-description">-</p>
+              </div>
+              <div class="tripnest-social-post-average-box">
+                <span>SCORE</span>
+                <strong id="postDetailAverage">0.00</strong>
+              </div>
+            </div>
+            <div id="postDetailPhotos" class="tripnest-social-post-media"></div>
+          </div>
+
+          <section class="tripnest-social-post-stats">
+            <span id="postLikesCount">0 likes</span>
+            <span id="postCommentsCount">0 comments</span>
+            <span id="postSharesCount">0 shares</span>
+            <span id="postSavesCount">0 saves</span>
+          </section>
+
+          <section class="tripnest-social-post-actions">
+            <button id="postLikeBtn" type="button" class="tripnest-social-action-btn">Καρδιά</button>
+            <button id="postCommentFocusBtn" type="button" class="tripnest-social-action-btn">Σχόλιο</button>
+            <button id="postShareBtn" type="button" class="tripnest-social-action-btn">Κοινοποίηση</button>
+          </section>
+
+          <section class="tripnest-post-ratings-card">
+            <h2>Trip Ratings</h2>
+            <div class="tripnest-post-ratings-list">
+              <div class="tripnest-post-rating-item"><span>Sights</span><strong id="postDetailSights">0</strong></div>
+              <div class="tripnest-post-rating-item"><span>Food</span><strong id="postDetailFood">0</strong></div>
+              <div class="tripnest-post-rating-item"><span>Activities</span><strong id="postDetailActivities">0</strong></div>
+              <div class="tripnest-post-rating-item"><span>Travel Ease</span><strong id="postDetailEase">0</strong></div>
+              <div class="tripnest-post-rating-item"><span>Cost</span><strong id="postDetailCost">0</strong></div>
+            </div>
+          </section>
+
+          <section class="tripnest-post-comments-card">
+            <h2>Comments</h2>
+            <form id="postCommentForm" class="tripnest-post-comment-form">
+              <textarea id="postCommentInput" rows="3" placeholder="Write your comment..."></textarea>
+              <button type="submit" class="primary-btn">Submit comment</button>
+            </form>
+            <div id="postCommentsList" class="tripnest-post-comments-list"></div>
+          </section>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div id="postShareModal" class="tripnest-share-modal" hidden>
+    <div class="tripnest-share-dialog">
+      <div class="tripnest-share-dialog-head">
+        <h2>Share post</h2>
+        <button id="closeShareModalBtn" type="button" class="tripnest-share-close-btn">Close</button>
+      </div>
+      <form id="postShareForm" class="tripnest-share-form">
+        <label>
+          <span>Recipient</span>
+          <select id="shareRecipientSelect">
+            <option value="">Select user</option>
+          </select>
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea id="shareMessageInput" rows="3" placeholder="Πρόσθεσε προαιρετικά ένα μήνυμα..."></textarea>
+        </label>
+        <div class="tripnest-share-actions">
+          <button type="submit" class="primary-btn">Send</button>
+          <button id="cancelShareBtn" type="button" class="secondary-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="postGalleryModal" class="tripnest-gallery-modal" hidden>
+    <button id="postGalleryCloseBtn" type="button" class="tripnest-gallery-close-btn" aria-label="Close gallery">×</button>
+    <button id="postGalleryPrevBtn" type="button" class="tripnest-gallery-nav-btn tripnest-gallery-nav-btn-left" aria-label="Previous photo">‹</button>
+    <figure class="tripnest-gallery-figure">
+      <img id="postGalleryImage" class="tripnest-gallery-image" src="" alt="" />
+    </figure>
+    <button id="postGalleryNextBtn" type="button" class="tripnest-gallery-nav-btn tripnest-gallery-nav-btn-right" aria-label="Next photo">›</button>
+  </div>
+
+  <script src="./nav-search.js"></script>
+  <script src="./post.js"></script>
+</body>
+</html>

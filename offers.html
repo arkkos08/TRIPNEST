@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest Offers</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dashboard-body">
+  <div class="tripnest-home-shell">
+    <aside class="tripnest-sidebar">
+      <a id="offersProfileNavLink" class="tripnest-sidebar-item" href="./profile.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span id="offersProfileNavTitle" class="tripnest-sidebar-title">Profile</span>
+          <span class="tripnest-sidebar-subtitle">My profile</span>
+        </span>
+      </a>
+
+      <a class="tripnest-sidebar-item" href="./conversations.html">
+        <span class="tripnest-sidebar-icon">C</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Conversations</span>
+          <span class="tripnest-sidebar-subtitle">Inbox and messages</span>
+        </span>
+      </a>
+
+      <a class="tripnest-sidebar-item" href="./saved.html">
+        <span class="tripnest-sidebar-icon">S</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Saved</span>
+          <span class="tripnest-sidebar-subtitle">My saved posts</span>
+        </span>
+      </a>
+
+      <a class="tripnest-sidebar-item" href="./trip-plans.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Trip planning</span>
+          <span class="tripnest-sidebar-subtitle">Plan and find a crew</span>
+        </span>
+      </a>
+
+      <a class="tripnest-sidebar-item active" href="./offers.html">
+        <span class="tripnest-sidebar-icon">O</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Offers</span>
+          <span class="tripnest-sidebar-subtitle">Cheap flights and stays</span>
+        </span>
+      </a>
+    </aside>
+
+    <nav class="tripnest-topbar">
+      <div class="tripnest-topbar-left">
+        <a class="tripnest-topbar-logo tripnest-topbar-logo-link" href="./home.html">T</a>
+        <input class="tripnest-topbar-search" type="text" placeholder="Search" />
+      </div>
+      <a class="tripnest-back-link" href="./home.html">Back to map</a>
+      <button id="offersLogoutBtn" class="tripnest-logout-btn">Logout</button>
+    </nav>
+
+    <main class="tripnest-home-content">
+      <section class="card tripnest-trip-plans-page-card">
+        <div class="tripnest-trip-plans-head">
+          <div>
+            <h1>Offers</h1>
+            <p>Flights, hotels and packages from Booking, Skyscanner and eSky.</p>
+          </div>
+        </div>
+
+        <div class="tripnest-offers-filters">
+          <select id="offersTypeFilter" class="tripnest-trip-plan-filter-select">
+            <option value="all">All categories</option>
+            <option value="flight">Flights</option>
+            <option value="hotel">Hotels</option>
+            <option value="package">Packages</option>
+          </select>
+
+          <select id="offersProviderFilter" class="tripnest-trip-plan-filter-select">
+            <option value="all">All providers</option>
+            <option value="booking">Booking</option>
+            <option value="skyscanner">Skyscanner</option>
+            <option value="esky">eSky</option>
+          </select>
+
+          <select id="offersBudgetFilter" class="tripnest-trip-plan-filter-select">
+            <option value="all">All budgets</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+
+          <input
+            id="offersSearchInput"
+            class="tripnest-trip-plan-filter-input"
+            type="text"
+            placeholder="Search destination or provider"
+            autocomplete="off"
+          />
+        </div>
+
+        <div id="offersSummary" class="tripnest-offers-summary">Loading offers...</div>
+        <div id="offersGrid" class="tripnest-offers-grid">
+          <p class="tripnest-empty-posts">Loading offers...</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./nav-search.js"></script>
+  <script src="./offers.js"></script>
+</body>
+</html>

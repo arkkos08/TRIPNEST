@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TripNest Edit Profile</title>
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body class="dashboard-body">
+
+  <div class="tripnest-home-shell">
+
+    <nav class="tripnest-topbar">
+
+      <div class="tripnest-topbar-left">
+        <a
+          class="tripnest-topbar-logo tripnest-topbar-logo-link"
+          href="./home.html"
+        >
+          T
+        </a>
+
+        <input
+          class="tripnest-topbar-search"
+          type="text"
+          placeholder="Search"
+        />
+      </div>
+
+      <a
+        class="tripnest-back-link"
+        href="./profile.html"
+      >
+        Back to profile
+      </a>
+
+      <button
+        id="logoutBtn"
+        class="tripnest-logout-btn"
+      >
+        Logout
+      </button>
+
+    </nav>
+
+
+    <main class="tripnest-home-content">
+
+      <section class="card tripnest-edit-profile-card">
+
+        <div class="tripnest-edit-profile-head">
+          <h1>Edit profile</h1>
+
+          <p>
+            Update your account details, profile photo,
+            bio and password.
+          </p>
+        </div>
+
+
+        <div class="tripnest-edit-profile-layout">
+
+          <div class="tripnest-edit-profile-preview">
+
+            <div
+              class="tripnest-profile-avatar tripnest-edit-avatar"
+              id="editAvatarPreview"
+            >
+              T
+            </div>
+
+            <div class="tripnest-file-actions">
+
+              <input
+                id="profileImageInput"
+                type="file"
+                accept="image/*"
+                class="tripnest-file-input"
+              />
+
+              <button
+                id="removeProfileImageBtn"
+                type="button"
+                class="secondary-btn tripnest-remove-photo-under-input"
+              >
+                Remove photo
+              </button>
+
+            </div>
+
+          </div>
+
+          <form
+            id="editProfileForm"
+            class="tripnest-edit-profile-form"
+          >
+
+            <div class="tripnest-edit-grid">
+
+              <label>
+                <span>Username</span>
+
+                <input
+                  id="editUsername"
+                  type="text"
+                  required
+                />
+              </label>
+
+
+              <label>
+                <span>Nickname</span>
+
+                <input
+                  id="editNickname"
+                  type="text"
+                  required
+                />
+              </label>
+
+
+              <label>
+                <span>Email</span>
+
+                <input
+                  id="editEmail"
+                  type="email"
+                  required
+                />
+              </label>
+
+
+              <label>
+                <span>Birth date</span>
+
+                <input
+                  id="editBirthDate"
+                  type="date"
+                  required
+                />
+              </label>
+
+
+              <label>
+                <span>Gender</span>
+
+                <select
+                  id="editGender"
+                  required
+                >
+                  <option value="">
+                    Choose gender
+                  </option>
+
+                  <option value="Male">
+                    Male
+                  </option>
+
+                  <option value="Female">
+                    Female
+                  </option>
+                </select>
+              </label>
+
+
+              <label>
+                <span>Country of residence</span>
+
+                <input
+                  id="editResidenceCountry"
+                  type="text"
+                  autocomplete="off"
+                  required
+                />
+              </label>
+
+
+              <label>
+                <span>City of residence</span>
+
+                <input
+                  id="editResidenceCity"
+                  type="text"
+                  autocomplete="off"
+                  required
+                />
+              </label>
+
+
+              <label>
+                <span>Mobile code</span>
+
+                <div class="tripnest-phone-code-field">
+
+                  <span
+                    id="editPhoneFlag"
+                    class="tripnest-phone-flag"
+                    aria-hidden="true"
+                  >
+                    🌍
+                  </span>
+
+                  <input
+                    id="editPhoneCodeDisplay"
+                    type="text"
+                    autocomplete="off"
+                    required
+                  />
+
+                </div>
+
+                <input
+                  id="editPhoneCode"
+                  type="hidden"
+                />
+              </label>
+
+
+              <label>
+                <span>Mobile phone</span>
+
+                <input
+                  id="editPhoneNumber"
+                  type="tel"
+                  inputmode="numeric"
+                  required
+                />
+              </label>
+
+            </div>
+
+
+            <label>
+              <span>Bio</span>
+
+              <textarea
+                id="editBio"
+                rows="4"
+                placeholder="Write a short bio for your profile"
+              ></textarea>
+            </label>
+
+
+            <div class="tripnest-password-block">
+
+              <h2>
+                Change password
+              </h2>
+
+              <div class="tripnest-edit-grid">
+
+                <label>
+                  <span>Current password</span>
+
+                  <input
+                    id="currentPassword"
+                    type="password"
+                  />
+                </label>
+
+
+                <label>
+                  <span>New password</span>
+
+                  <input
+                    id="newPassword"
+                    type="password"
+                  />
+                </label>
+
+
+                <label>
+                  <span>Confirm new password</span>
+
+                  <input
+                    id="confirmPassword"
+                    type="password"
+                  />
+                </label>
+
+              </div>
+
+            </div>
+
+
+            <p
+              id="editProfileMessage"
+              class="tripnest-edit-message"
+            ></p>
+
+
+            <div class="tripnest-edit-actions">
+
+              <button
+                type="submit"
+                class="primary-btn"
+              >
+                Save changes
+              </button>
+
+
+              <button
+                id="deleteAccountBtn"
+                type="button"
+                class="secondary-btn tripnest-danger-btn"
+              >
+                Delete account
+              </button>
+
+
+              <a
+                href="./profile.html"
+                class="secondary-btn tripnest-link-btn"
+              >
+                Cancel
+              </a>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div
+          id="profileImageCropModal"
+          class="tripnest-profile-crop-modal"
+          hidden
+        >
+
+          <div class="tripnest-profile-crop-panel">
+
+            <div class="tripnest-profile-crop-header">
+
+              <h2>
+                Choose the portrait position
+              </h2>
+
+              <button
+                id="closeProfileImageCropModal"
+                type="button"
+                class="tripnest-profile-crop-close"
+                aria-label="Close"
+              >
+                ×
+              </button>
+
+            </div>
+
+
+            <div class="tripnest-profile-crop-stage">
+
+              <div
+                id="profileImageCropViewport"
+                class="tripnest-profile-crop-viewport"
+                aria-label="Choose profile photo position"
+                tabindex="0"
+              >
+
+                <img
+                  id="profileImageCropPreview"
+                  src=""
+                  alt="Profile crop preview"
+                />
+
+                <div class="tripnest-profile-crop-mask"></div>
+
+              </div>
+
+
+              <p class="tripnest-profile-crop-hint">
+                Click or drag inside the circle to choose
+                the point that appears in your profile.
+              </p>
+
+            </div>
+
+
+            <div class="tripnest-profile-crop-actions">
+
+              <button
+                id="removeProfileImageCropBtn"
+                type="button"
+                class="secondary-btn tripnest-danger-btn"
+              >
+                Remove photo
+              </button>
+
+
+              <button
+                id="applyProfileImageCropBtn"
+                type="button"
+                class="primary-btn"
+              >
+                Apply
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script src="./nav-search.js"></script>
+  <script src="./edit-profile.js"></script>
+
+</body>
+</html> 

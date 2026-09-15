@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/jsvectormap.min.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dashboard-body">
+  <div class="tripnest-home-shell">
+    <aside class="tripnest-sidebar">
+      <a id="profileNavLink" class="tripnest-sidebar-item" href="./profile.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span id="profileNavTitle" class="tripnest-sidebar-title">Profile</span>
+          <span class="tripnest-sidebar-subtitle">My profile</span>
+        </span>
+      </a>
+      <a id="conversationsNavLink" class="tripnest-sidebar-item" href="./conversations.html">
+        <span class="tripnest-sidebar-icon">C</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Conversations</span>
+          <span class="tripnest-sidebar-subtitle">Inbox and messages</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./saved.html">
+        <span class="tripnest-sidebar-icon">S</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Saved</span>
+          <span class="tripnest-sidebar-subtitle">My saved posts</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./trip-plans.html">
+        <span class="tripnest-sidebar-icon">T</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Trip planning</span>
+          <span class="tripnest-sidebar-subtitle">Plan and find a crew</span>
+        </span>
+      </a>
+      <a class="tripnest-sidebar-item" href="./offers.html">
+        <span class="tripnest-sidebar-icon">O</span>
+        <span class="tripnest-sidebar-copy">
+          <span class="tripnest-sidebar-title">Offers</span>
+          <span class="tripnest-sidebar-subtitle">Cheap flights and stays</span>
+        </span>
+      </a>
+    </aside>
+
+    <nav class="tripnest-topbar">
+      <div class="tripnest-topbar-left">
+        <div class="tripnest-topbar-logo">T</div>
+        <input
+          class="tripnest-topbar-search"
+          type="text"
+          placeholder="Search"
+        />
+      </div>
+
+      <button id="logoutBtn" class="tripnest-logout-btn">Logout</button>
+    </nav>
+
+    <main class="tripnest-home-content">
+      <div class="tripnest-page-intro">
+        <h1>My map</h1>
+        <p id="welcomeUser"></p>
+      </div>
+
+      <section class="tripnest-map-layout">
+        <section class="card tripnest-map-card">
+          <div class="tripnest-map-header">
+            <div class="tripnest-map-controls">
+              <select id="countrySelect">
+                <option value="">Choose country</option>
+              </select>
+            </div>
+
+            <div class="tripnest-map-actions">
+              <button id="addCountryBtn" class="primary-btn">Add country</button>
+              <button id="removeCountryBtn" class="secondary-btn">Remove country</button>
+              <button id="clearCountriesBtn" class="danger-btn">Remove all</button>
+            </div>
+          </div>
+
+          <div class="tripnest-map-frame">
+            <div id="beenMap" class="real-world-map"></div>
+          </div>
+
+          <aside class="tripnest-stats-card">
+            <div class="tripnest-stats-head">
+              <h3>Countries I've visited</h3>
+            </div>
+
+            <div class="tripnest-stats-content">
+              <div class="tripnest-stat-block">
+                <strong id="visitedPercentBig">0%</strong>
+                <span>World</span>
+              </div>
+
+              <div class="progress-summary-ring" id="progressRing"></div>
+
+              <div class="tripnest-stat-block align-right">
+                <strong id="visitedCountriesBig">0</strong>
+                <span>Countries</span>
+              </div>
+            </div>
+
+            <p id="visitedCountriesText">0 / 195 UN Countries</p>
+          </aside>
+        </section>
+      </section>
+
+      <section class="tripnest-dashboard-feed-section">
+        <div class="tripnest-dashboard-feed-head">
+          <h2>New posts</h2>
+          <p>Scroll down and see all the latest posts.</p>
+        </div>
+        <div id="dashboardFeedGrid" class="tripnest-dashboard-feed-grid">
+          <p class="tripnest-empty-posts">Follow users to see their posts here.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+  <script src="./nav-search.js"></script>
+  <script src="./dashboard.js"></script>
+</body>
+</html>

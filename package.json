@@ -1,0 +1,21 @@
+{
+  "name": "tripnest",
+  "version": "1.0.0",
+  "description": "TripNest social travel UI served with Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "tripnest",
+    "travel",
+    "social",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "countries-list": "^3.3.0",
+    "playwright-core": "^1.59.1"
+  }
+}
